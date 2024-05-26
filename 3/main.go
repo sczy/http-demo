@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -111,6 +112,7 @@ func handleFrame(conn net.Conn, frame *Frame) {
 			byte(frame.StreamID >> 24 & 0xFF), byte(frame.StreamID >> 16 & 0xFF), byte(frame.StreamID >> 8 & 0xFF), byte(frame.StreamID & 0xFF),
 			'H', 'e', 'l', 'l', 'o', ',', ' ', 'H', '2', '!',
 		}
+		fmt.Println("=====")
 		conn.Write(data)
 	}
 }
